@@ -39,3 +39,10 @@ variable "template_repository" {
   nullable    = false
   default     = false
 }
+
+variable "github_repository_topics" {
+  type        = set(string)
+  description = "The topics present on the repository"
+  nullable    = true
+  default     = []
+}

@@ -1,6 +1,6 @@
 resource "github_repository_file" "autofork_workflow" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = ".github/workflows/auto-fork-template.yml"
   content             = module.workflow_template.rendered
   commit_message      = "feat: adding terraform auto-fork-template"

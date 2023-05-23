@@ -17,6 +17,7 @@ module "workflow_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
   template_url = "https://raw.githubusercontent.com/codingones/github-files-templates/main/github-actions/auto-fork-template.yml"
   template_variables = {
-    TEMPLATE_REPOSITORY = var.template_repository
+    __TEMPLATE_REPOSITORY       = var.template_repository
+    __TEMPLATED_FILES_VARIABLES = join(",", formatlist("%s/%s", keys(var.templated_files_variables), values(var.templated_files_variables)))
   }
 }

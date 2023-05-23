@@ -40,6 +40,13 @@ variable "template_repository" {
   default     = false
 }
 
+variable "templated_files_variables" {
+  type        = map(string)
+  description = "The variables to replace in the forked template repository files"
+  nullable    = false
+  default     = {}
+}
+
 variable "github_repository_topics" {
   type        = set(string)
   description = "The topics present on the repository"

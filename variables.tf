@@ -47,6 +47,12 @@ variable "templated_files_variables" {
   default     = {}
 }
 
+variable "template_fork" {
+  type        = bool
+  description = "If true will replace all repository content from template, this is a destructive operation"
+  nullable    = false
+}
+
 variable "github_repository_topics" {
   type        = set(string)
   description = "The topics present on the repository"

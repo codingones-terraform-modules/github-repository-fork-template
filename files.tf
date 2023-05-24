@@ -1,4 +1,7 @@
+# We only apply this if the repository was not existing at all
 resource "github_repository_file" "autofork_workflow" {
+  count = var.template_fork ? 1 : 0
+
   repository          = module.repository.repository_name
   branch              = module.repository.default_branch_name
   file                = ".github/workflows/auto-fork-template.yml"
